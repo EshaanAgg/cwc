@@ -3,8 +3,8 @@ import type { CountryContext } from "react-svg-worldmap";
 import WorldMap from "react-svg-worldmap";
 import QuestionModal from "../src/QuestionModal";
 
-const redCount = ["IN", "CA", "US"];
-const blueCount = ["MX", "ID", "PK"];
+const redCount = ["CN", "IN", "US", "ID"];
+const blueCount = ["PK", "BR", "NG", "BG"];
 
 const getColor = (cc: string) => {
 	if (redCount.includes(cc.toUpperCase())) return "red";
@@ -36,11 +36,18 @@ const Map = (props: any) => {
 
 	const [open, setOpen] = useState(false);
 	const handleClose = () => setOpen(false);
-	const [id, setId] = useState("");
+	const [id, setId] = useState(0);
 
 	const handleClickOnCountry = ({ countryCode }: { countryCode: string }) => {
-		setId(countryCode);
+		if ((!redCount.includes(countryCode)) && (!blueCount.includes(countryCode))) return;
+		var id;
+		if (redCount.includes(countryCode)) id = 3;
+		else {
+			id = (blueCount.findIndex((cc) => cc == countryCode)) % 2 + 1;
+		}
+		setId(id);
 		if (redCount.includes(countryCode)) setOpen(true);
+		else if (blueCount.includes(countryCode)) setOpen(true);	
 	};
 
 	return (

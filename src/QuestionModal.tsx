@@ -22,7 +22,7 @@ export default function TransitionsModal({
 	open,
 	handleClose,
 }: {
-	questionId: string;
+	questionId: number;
 	open: boolean;
 	handleClose: () => void;
 }) {
