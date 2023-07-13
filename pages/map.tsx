@@ -293,6 +293,19 @@ const Map = (props: any) => {
 
 	return (
 		<div className="mapMain">
+			<div className="title">
+				Choose a country to save
+				<div className="legend">
+					<div className="l1">
+						<div className="box1"></div>
+						<div className="txt">Advanced</div>
+					</div>
+					<div className="l1">
+						<div className="box2"></div>
+						<div className="txt">Beginner</div>
+					</div>
+				</div>
+			</div>
 			<WorldMap
 				opacity="50"
 				tooltipBgColor="#000000"
