@@ -8,7 +8,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
-import { ToastContainer } from "react-toastify";
 import "./main.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,16 +20,14 @@ export interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 	return (
-		<ToastContainer>
-			<CacheProvider value={emotionCache}>
-				<Head>
-					<meta name="viewport" content="initial-scale=1, width=device-width" />
-				</Head>
-				<ThemeProvider theme={theme}>
-					<CssBaseline />
-					<Component {...pageProps} />
-				</ThemeProvider>
-			</CacheProvider>
-		</ToastContainer>
+		<CacheProvider value={emotionCache}>
+			<Head>
+				<meta name="viewport" content="initial-scale=1, width=device-width" />
+			</Head>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</CacheProvider>
 	);
 }

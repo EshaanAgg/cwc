@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import type { CountryContext } from "react-svg-worldmap";
 import WorldMap from "react-svg-worldmap";
@@ -39,15 +41,15 @@ const Map = (props: any) => {
 	const [id, setId] = useState(0);
 
 	const handleClickOnCountry = ({ countryCode }: { countryCode: string }) => {
-		if ((!redCount.includes(countryCode)) && (!blueCount.includes(countryCode))) return;
+		if (!redCount.includes(countryCode) && !blueCount.includes(countryCode)) return;
 		var id;
 		if (redCount.includes(countryCode)) id = 3;
 		else {
-			id = (blueCount.findIndex((cc) => cc == countryCode)) % 2 + 1;
+			id = (blueCount.findIndex((cc) => cc == countryCode) % 2) + 1;
 		}
 		setId(id);
 		if (redCount.includes(countryCode)) setOpen(true);
-		else if (blueCount.includes(countryCode)) setOpen(true);	
+		else if (blueCount.includes(countryCode)) setOpen(true);
 	};
 
 	return (

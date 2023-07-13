@@ -135,3 +135,11 @@ body {
 	bottom: 0px;
 	left: 0px;
 }
+
+.p-2 {
+	padding: 0.2vh;
+}
+
+.m-2 {
+	margin: 0.2vh;
+}
