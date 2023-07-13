@@ -8,11 +8,12 @@ import Fade from "@mui/material/Fade";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ToastContainer, toast } from "react-toastify";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Link } from '@mui/material';
 
 const style = {
 	position: "absolute" as "absolute",
@@ -24,6 +25,20 @@ const style = {
 	border: "2px solid #000",
 	boxShadow: 24,
 	p: 4,
+	color: "white",
+};
+
+const darkTheme = createTheme({
+	palette: {
+	  mode: 'dark',
+	},
+});
+
+const link_style = {
+	color: 'blue', 
+	'&:visited': {
+		color: 'blue', 
+	},
 };
 
 export default function TransitionsModal({
@@ -36,6 +51,7 @@ export default function TransitionsModal({
 	handleClose: () => void;
 }) {
 	return (
+		<ThemeProvider theme={darkTheme}>
 		<div>
 			<ToastContainer limit={2} />
 			<Modal
@@ -57,6 +73,7 @@ export default function TransitionsModal({
 				</Fade>
 			</Modal>
 		</div>
+		</ThemeProvider>
 	);
 }
 
@@ -70,6 +87,7 @@ function QuestionContent({ que }: { que: any }) {
 	};
 
 	return (
+		<ThemeProvider theme={darkTheme}>
 		<div>
 			<h1>{que.name}</h1>
 			<Accordion className="m-2">
@@ -77,12 +95,10 @@ function QuestionContent({ que }: { que: any }) {
 					expandIcon={<ExpandMoreIcon />}
 					aria-controls="panel1a-content"
 					id="panel1a-header">
-					<Typography>
-						<h4>Problem Description</h4>
-					</Typography>
+					<h4>Problem Description</h4>
 				</AccordionSummary>
 				<AccordionDetails>
-					<Typography>{que.description}</Typography>
+					{que.description}
 				</AccordionDetails>
 			</Accordion>
 			<Accordion className="m-2">
@@ -90,9 +106,7 @@ function QuestionContent({ que }: { que: any }) {
 					expandIcon={<ExpandMoreIcon />}
 					aria-controls="panel2a-content"
 					id="panel2a-header">
-					<Typography>
 						<h4>Resources</h4>
-					</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
 					{que.resourceURL.length == 0
@@ -101,7 +115,7 @@ function QuestionContent({ que }: { que: any }) {
 								return (
 									<div>
 										<h3>{res.name}:-</h3>
-										<a href={res.url}>Click Me</a>
+										<Link href={res.url} sx={link_style}>Click Me</Link>
 									</div>
 								);
 						  })}
@@ -112,9 +126,7 @@ function QuestionContent({ que }: { que: any }) {
 					expandIcon={<ExpandMoreIcon />}
 					aria-controls="panel3a-content"
 					id="panel3a-header">
-					<Typography>
-						<h4>Answer</h4>
-					</Typography>
+					<h4>Answer</h4>
 				</AccordionSummary>
 				<AccordionDetails>
 					<TextField
@@ -132,6 +144,7 @@ function QuestionContent({ que }: { que: any }) {
 				</AccordionDetails>
 			</Accordion>
 		</div>
+		</ThemeProvider>
 	);
 }
 
