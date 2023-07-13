@@ -109,7 +109,9 @@ body {
 	border-radius: 16px;
 }
 
-.panel-bottom {
+.panel-top-right {
+	position: absolute;
+	width: 50vh;
 	height: fit-content;
 	width: 100%;
 	padding: 20px;
@@ -117,6 +119,48 @@ body {
 	border-color: #ffffff;
 	background-color: #000000;
 	border-radius: 16px;
+	top: -80%;
+	left: 360%;
+}
+
+.panel-logo {
+	position: absolute;
+	height: fit-content;
+	width: fit-content;
+	border: solid;
+	border-color: #ffffff;
+	overflow: hidden;
+	background-color: #000000;
+	border-radius: 16px;
+	top: -55%;
+	left: 180%;
+}
+
+.panel-long {
+	position: absolute;
+	padding: 20px;
+	height: fit-content;
+	border: solid;
+	border-color: #ffffff;
+	background-color: #000000;
+	border-radius: 16px;
+	top: 60%;
+	left: 40%;
+	width: 150vh;
+}
+
+.panel-bottom {
+	height: fit-content;
+	width: 100%;
+	padding: 20px;
+	border: solid;
+	width: 30vh;
+	border-color: #ffffff;
+	background-color: #000000;
+	border-radius: 16px;
+	top: -100%;
+	left: 40%;
+	position: absolute;
 }
 
 .right-side {

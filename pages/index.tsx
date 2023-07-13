@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import logo from "./logo.png";
+import Image from "next/image";
 
 export default function Home() {
 	return (
@@ -14,10 +16,55 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="panel-bottom">
-					<h3 style={{ fontFamily: "veto" }}>
-						{" "}
-						<a href="/map">Click here to start playing!</a>
-					</h3>
+					<h1 style={{ fontFamily: "veto", margin: 0, fontSize: `4vh` }}>Exploits</h1>
+					<p style={{ lineHeight: 1.2, margin: 0 }}>
+						These games are designed to teach you about:
+						<ul>
+							<li>Phisping Attack</li>
+							<li>Spyware</li>
+							<li>XXS and Cookie Exploits</li>
+							<li>Code Injection</li>
+						</ul>
+						and sooo many more.
+					</p>
+				</div>
+				<div className="panel-top-right">
+					<h1 style={{ fontFamily: "veto", margin: 0, fontSize: `4vh` }}>Playing Modes</h1>
+					<p style={{ lineHeight: 1.2, margin: 0 }}>
+						We offer two different life stories for you to explore:
+						<ul>
+							<li>
+								<div>
+									<h3>Rookie</h3>
+									<p>
+										Learn all about the different exploits that your phone can be subjected to.{" "}
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<h3>Expert</h3>
+									<p>
+										Play as a trained defender who must find security vulnerabilities and exploits
+										in real world code.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</p>
+				</div>
+				<div className="panel-long">
+					<h1 style={{ fontFamily: "veto", margin: 0, fontSize: `4vh` }}>Challenges</h1>
+					<p style={{ lineHeight: 1.2, margin: 0 }}>
+						All the challenges are self-contained and contain all the source code and resources
+						necessary to solve them in them. All you need is your browser, your waits and any a
+						code-editor to exploit vulnerabilities!
+					</p>
+				</div>
+				<div className="panel-logo">
+					<a href="/map">
+						<Image src={logo} height={300} width={300} alt="logo" />
+					</a>
 				</div>
 			</div>
 
