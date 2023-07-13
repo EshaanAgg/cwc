@@ -18,7 +18,7 @@ export default function Home() {
 					<p style={{ lineHeight: 1.2, margin: 0 }}>
 						These games are designed to teach you about:
 						<ul>
-							<li>Phisping Attack</li>
+							<li>Phishing Attack</li>	
 							<li>Spyware</li>
 							<li>XXS and Cookie Exploits</li>
 							<li>Code Injection</li>
@@ -55,7 +55,7 @@ export default function Home() {
 					<h1 style={{ fontFamily: "veto", margin: 0, fontSize: `4vh` }}>Challenges</h1>
 					<p style={{ lineHeight: 1.2, margin: 0 }}>
 						All the challenges are self-contained and contain all the source code and resources
-						necessary to solve them in them. All you need is your browser, your waits and any a
+						necessary to solve them in them. All you need is your browser, your waits and any
 						code-editor to exploit vulnerabilities!
 					</p>
 				</div>
