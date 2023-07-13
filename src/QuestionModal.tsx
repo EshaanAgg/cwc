@@ -60,7 +60,7 @@ export default function TransitionsModal({
 	);
 }
 
-function QuestionContent({ que }) {
+function QuestionContent({ que }: { que: any }) {
 	const [userAnswer, setUserAnswer] = useState("");
 
 	const checkAnswer = () => {
@@ -97,7 +97,7 @@ function QuestionContent({ que }) {
 				<AccordionDetails>
 					{que.resourceURL.length == 0
 						? "There are no resources required to solve this problem."
-						: que.resourceURL.map((res) => {
+						: que.resourceURL.map((res: any) => {
 								return (
 									<div>
 										<h3>{res.name}:-</h3>
