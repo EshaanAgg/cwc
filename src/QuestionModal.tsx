@@ -4,6 +4,14 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { toast } from "react-toastify";
 
 const style = {
 	position: "absolute" as "absolute",
@@ -22,7 +30,7 @@ export default function TransitionsModal({
 	open,
 	handleClose,
 }: {
-	questionId: string;
+	questionId: number;
 	open: boolean;
 	handleClose: () => void;
 }) {
@@ -42,15 +50,94 @@ export default function TransitionsModal({
 				}}>
 				<Fade in={open}>
 					<Box sx={style}>
-						<Typography id="transition-modal-title" variant="h6" component="h2">
-							Text in a modal {questionId}
-						</Typography>
-						<Typography id="transition-modal-description" sx={{ mt: 2 }}>
-							Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-						</Typography>
+						<QuestionContent que={questions[questionId - 1]}></QuestionContent>
 					</Box>
 				</Fade>
 			</Modal>
 		</div>
 	);
 }
+
+function QuestionContent({ que }) {
+	const [userAnswer, setUserAnswer] = useState("");
+
+	const checkAnswer = () => {
+		if (userAnswer.toLowerCase() === que.answer.toLowerCase()) toast.sucess("That's correct!");
+		else toast.error("That's not right.");
+	};
+
+	return (
+		<div>
+			<Accordion>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel1a-content"
+					id="panel1a-header">
+					<Typography>Problem Description</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<Typography>{que.description}</Typography>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel2a-content"
+					id="panel2a-header">
+					<Typography>Resources</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					{que.resourceURL.length == 0
+						? "There are no resources required to solve this problem."
+						: que.resourceURL.map((res) => {
+								return (
+									<div>
+										<h3>{res.name}</h3>
+										<Typography>
+											<a href={res.url}>Click Me</a>
+										</Typography>
+									</div>
+								);
+						  })}
+				</AccordionDetails>
+			</Accordion>
+			<Accordion>
+				<AccordionSummary
+					expandIcon={<ExpandMoreIcon />}
+					aria-controls="panel3a-content"
+					id="panel3a-header">
+					<Typography>Question</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<TextField
+						id="outlined-password-input"
+						label="Answer"
+						type="text"
+						value="userAnswer"
+						onChange={setUserAnswer(e.target.value)}
+					/>
+					<Button variant="text" onClick={checkAnswer}>
+						Submit
+					</Button>
+				</AccordionDetails>
+			</Accordion>
+		</div>
+	);
+}
+
+const questions = [
+	{
+		id: 1,
+		name: "Who is the lier?",
+		area: "Phising",
+		description: "You have recieved an overwhelming number of messages today. Do they look safe?",
+		question: "Return the name user whom can't be trusted.",
+		resourceURL: [
+			{
+				name: "Messages",
+				url: "https://message-in34lm6u3-vcvedika.vercel.app/",
+			},
+		],
+		answer: "FLIPKART",
+	},
+];
