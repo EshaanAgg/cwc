@@ -18,7 +18,8 @@
     "@mui/material": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-svg-worldmap": "^2.0.0-alpha.16"
   },
   "devDependencies": {
     "@types/node": "latest",
