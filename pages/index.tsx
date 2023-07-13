@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import logo from "./logo.png";
 import Image from "next/image";
