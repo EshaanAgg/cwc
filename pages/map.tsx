@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import type { CountryContext } from "react-svg-worldmap";
 import WorldMap from "react-svg-worldmap";
+import QuestionModal from "../src/QuestionModal";
 
 const redCount = ["IN", "CA", "US"];
 const blueCount = ["MX", "ID", "PK"];
@@ -33,6 +34,15 @@ const Map = (props: any) => {
 		{ country: "mx", value: 127318112 }, // Mexico
 	];
 
+	const [open, setOpen] = useState(false);
+	const handleClose = () => setOpen(false);
+	const [id, setId] = useState("");
+
+	const handleClickOnCountry = ({ countryCode }: { countryCode: string }) => {
+		setId(countryCode);
+		if (redCount.includes(countryCode)) setOpen(true);
+	};
+
 	return (
 		<div className="mapMain">
 			<WorldMap
@@ -46,7 +56,9 @@ const Map = (props: any) => {
 				data={data}
 				frame
 				styleFunction={getStyle}
+				onClickFunction={handleClickOnCountry}
 			/>
+			<QuestionModal open={open} handleClose={handleClose} questionId={id} />
 		</div>
 	);
 };
