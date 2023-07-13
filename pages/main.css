@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+
+@font-face {
+	font-family: "veto";
+	src: url(https://doruksasmaz.com/home/fonts/VetoSans-Bold.ttf) format("truetype");
+}
+
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+	100% {
+		background-position: 50px 50px;
+	}
+}
+
+@-moz-keyframes bg-scrolling-reverse {
+	100% {
+		background-position: 50px 50px;
+	}
+}
+
+@-o-keyframes bg-scrolling-reverse {
+	100% {
+		background-position: 50px 50px;
+	}
+}
+
+@keyframes bg-scrolling-reverse {
+	100% {
+		background-position: 50px 50px;
+	}
+}
+
+@-webkit-keyframes bg-scrolling {
+	0% {
+		background-position: 50px 50px;
+	}
+}
+
+@-moz-keyframes bg-scrolling {
+	0% {
+		background-position: 50px 50px;
+	}
+}
+
+@-o-keyframes bg-scrolling {
+	0% {
+		background-position: 50px 50px;
+	}
+}
+
+@keyframes bg-scrolling {
+	0% {
+		background-position: 50px 50px;
+	}
+}
+
+body {
+	margin: 0;
+	padding: 0px;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+	font-family: "Inconsolata";
+	display: flex;
+	align-items: center;
+	background: url("https://cdn.discordapp.com/attachments/1124065927718252584/1124065995762442250/indir.png")
+		repeat 0 0;
+	-webkit-animation: bg-scrolling-reverse 0.92s infinite;
+	/* Safari 4+ */
+	-moz-animation: bg-scrolling-reverse 0.92s infinite;
+	/* Fx 5+ */
+	-o-animation: bg-scrolling-reverse 0.92s infinite;
+	/* Opera 12+ */
+	animation: bg-scrolling-reverse 0.92s infinite;
+	/* IE 10+ */
+	-webkit-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+.bg-color {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#00000000, #000000 80%);
+}
+
+.panel {
+	position: absolute;
+	width: 20vw;
+	height: -webkit-fill-available;
+	opacity: 50%;
+	z-index: 999;
+	margin: 20px;
+	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.panel-top {
+	height: fit-content;
+	width: 100%;
+	padding: 20px;
+	border: solid;
+	border-color: #ffffff;
+	background-color: #000000;
+	border-radius: 16px;
+}
+
+.panel-bottom {
+	height: fit-content;
+	width: 100%;
+	padding: 20px;
+	border: solid;
+	border-color: #ffffff;
+	background-color: #000000;
+	border-radius: 16px;
+}
+
+.right-side {
+	mix-blend-mode: multiply;
+	position: absolute;
+	width: 90%;
+	right: 5%;
+	bottom: -20%;
+}
