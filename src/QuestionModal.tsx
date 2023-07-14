@@ -128,6 +128,7 @@ function QuestionContent({ que }: { que: any }) {
 						id="panel3a-header">
 						<h4>Answer</h4>
 					</AccordionSummary>
+					<div style={{ padding: 10, margin: 10, paddingTop: 0, marginTop: 0 }}>{que.question}</div>
 					<AccordionDetails>
 						<TextField
 							id="outlined-password-input"
