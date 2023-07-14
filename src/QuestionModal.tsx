@@ -12,8 +12,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ToastContainer, toast } from "react-toastify";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Link } from '@mui/material';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Link } from "@mui/material";
 
 const style = {
 	position: "absolute" as "absolute",
@@ -30,14 +30,14 @@ const style = {
 
 const darkTheme = createTheme({
 	palette: {
-	  mode: 'dark',
+		mode: "dark",
 	},
 });
 
 const link_style = {
-	color: 'blue', 
-	'&:visited': {
-		color: 'blue', 
+	color: "blue",
+	"&:visited": {
+		color: "blue",
 	},
 };
 
@@ -52,27 +52,27 @@ export default function TransitionsModal({
 }) {
 	return (
 		<ThemeProvider theme={darkTheme}>
-		<div>
-			<ToastContainer limit={2} />
-			<Modal
-				aria-labelledby="transition-modal-title"
-				aria-describedby="transition-modal-description"
-				open={open}
-				onClose={handleClose}
-				closeAfterTransition
-				slots={{ backdrop: Backdrop }}
-				slotProps={{
-					backdrop: {
-						timeout: 500,
-					},
-				}}>
-				<Fade in={open}>
-					<Box sx={style}>
-						<QuestionContent que={questions[questionId - 1]}></QuestionContent>
-					</Box>
-				</Fade>
-			</Modal>
-		</div>
+			<div>
+				<ToastContainer limit={2} />
+				<Modal
+					aria-labelledby="transition-modal-title"
+					aria-describedby="transition-modal-description"
+					open={open}
+					onClose={handleClose}
+					closeAfterTransition
+					slots={{ backdrop: Backdrop }}
+					slotProps={{
+						backdrop: {
+							timeout: 500,
+						},
+					}}>
+					<Fade in={open}>
+						<Box sx={style}>
+							<QuestionContent que={questions[questionId - 1]}></QuestionContent>
+						</Box>
+					</Fade>
+				</Modal>
+			</div>
 		</ThemeProvider>
 	);
 }
@@ -88,62 +88,62 @@ function QuestionContent({ que }: { que: any }) {
 
 	return (
 		<ThemeProvider theme={darkTheme}>
-		<div>
-			<h1>{que.name}</h1>
-			<Accordion className="m-2">
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls="panel1a-content"
-					id="panel1a-header">
-					<h4>Problem Description</h4>
-				</AccordionSummary>
-				<AccordionDetails>
-					{que.description}
-				</AccordionDetails>
-			</Accordion>
-			<Accordion className="m-2">
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls="panel2a-content"
-					id="panel2a-header">
+			<div>
+				<h1>{que.name}</h1>
+				<Accordion className="m-2">
+					<AccordionSummary
+						expandIcon={<ExpandMoreIcon />}
+						aria-controls="panel1a-content"
+						id="panel1a-header">
+						<h4>Problem Description</h4>
+					</AccordionSummary>
+					<AccordionDetails>{que.description}</AccordionDetails>
+				</Accordion>
+				<Accordion className="m-2">
+					<AccordionSummary
+						expandIcon={<ExpandMoreIcon />}
+						aria-controls="panel2a-content"
+						id="panel2a-header">
 						<h4>Resources</h4>
-				</AccordionSummary>
-				<AccordionDetails>
-					{que.resourceURL.length == 0
-						? "There are no resources required to solve this problem."
-						: que.resourceURL.map((res: any) => {
-								return (
-									<div>
-										<h3>{res.name}:-</h3>
-										<Link href={res.url} sx={link_style}>Click Me</Link>
-									</div>
-								);
-						  })}
-				</AccordionDetails>
-			</Accordion>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
-					aria-controls="panel3a-content"
-					id="panel3a-header">
-					<h4>Answer</h4>
-				</AccordionSummary>
-				<AccordionDetails>
-					<TextField
-						id="outlined-password-input"
-						label="Answer"
-						type="text"
-						value={userAnswer}
-						onChange={(e) => setUserAnswer(e.target.value)}
-					/>
-					<br />
-					<br />
-					<Button variant="contained" onClick={checkAnswer}>
-						Submit
-					</Button>
-				</AccordionDetails>
-			</Accordion>
-		</div>
+					</AccordionSummary>
+					<AccordionDetails>
+						{que.resourceURL.length == 0
+							? "There are no resources required to solve this problem."
+							: que.resourceURL.map((res: any) => {
+									return (
+										<div>
+											<h3>{res.name}:-</h3>
+											<Link href={res.url} sx={link_style}>
+												Click Me
+											</Link>
+										</div>
+									);
+							  })}
+					</AccordionDetails>
+				</Accordion>
+				<Accordion>
+					<AccordionSummary
+						expandIcon={<ExpandMoreIcon />}
+						aria-controls="panel3a-content"
+						id="panel3a-header">
+						<h4>Answer</h4>
+					</AccordionSummary>
+					<AccordionDetails>
+						<TextField
+							id="outlined-password-input"
+							label="Answer"
+							type="text"
+							value={userAnswer}
+							onChange={(e) => setUserAnswer(e.target.value)}
+						/>
+						<br />
+						<br />
+						<Button variant="contained" onClick={checkAnswer}>
+							Submit
+						</Button>
+					</AccordionDetails>
+				</Accordion>
+			</div>
 		</ThemeProvider>
 	);
 }
@@ -165,19 +165,18 @@ const questions = [
 	},
 	{
 		id: 2,
-		name: "Best Calculator",
+		name: "Can I Trust You?",
 		area: "App Malware",
-		description:
-			"You have heard a lot of praises about this recently released calculator. Let's install it!",
+		description: "You have heard a lot of praises about these apps recently. Let's install it!",
 		question:
-			"Which of these permissions should not be provided? Reply None if all looks safe to you. ",
+			"Which of these apps looks safe to you based on the permission requests? Reply All if all of them look safe to you. ",
 		resourceURL: [
 			{
 				name: "Permissions",
 				url: "https://carousel-seven-eta.vercel.app/",
 			},
 		],
-		answer: "calls",
+		answer: "maps",
 	},
 	{
 		id: 3,

@@ -18,7 +18,7 @@ export default function Home() {
 					<p style={{ lineHeight: 1.2, margin: 0 }}>
 						These games are designed to teach you about:
 						<ul>
-							<li>Phishing Attack</li>	
+							<li>Phishing Attack</li>
 							<li>Spyware</li>
 							<li>XXS and Cookie Exploits</li>
 							<li>Code Injection</li>
